@@ -1,8 +1,6 @@
-import "./globals.css";
-
 export const metadata = {
-  title: "VAXS | Digital Asset Exchange Infrastructure",
-  description: "VAXS is a digital asset exchange serving Southeast Asia, Japan and Korea."
+  title: "VAXS | Digital Asset Exchange",
+  description: "VAXS is a digital asset exchange platform serving Southeast Asia, Japan and Korea."
 };
 
 export default function RootLayout({ children }) {
