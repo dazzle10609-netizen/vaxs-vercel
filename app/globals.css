@@ -1,4 +1,19 @@
-@import "tailwindcss";
+:root {
+  color-scheme: dark;
+  --bg: #050716;
+  --panel: rgba(255, 255, 255, 0.055);
+  --panel-strong: rgba(255, 255, 255, 0.085);
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --muted: #a8b0c4;
+  --muted-2: #707994;
+  --blue: #2628b4;
+  --cyan: #79e6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -6,5 +21,677 @@ html {
 
 body {
   margin: 0;
-  background: #050716;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+}
+
+.glowOne {
+  top: -160px;
+  left: -140px;
+  width: 420px;
+  height: 420px;
+  background: rgba(38, 40, 180, 0.42);
+}
+
+.glowTwo {
+  top: 120px;
+  right: -120px;
+  width: 560px;
+  height: 560px;
+  background: rgba(207, 58, 255, 0.18);
+}
+
+.gridLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.header,
+.section,
+.footer {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandMark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 16px;
+  background: #ffffff;
+  color: var(--blue);
+  font-weight: 900;
+  box-shadow: 0 20px 40px rgba(38, 40, 180, 0.25);
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.brand small {
+  margin-top: 2px;
+  color: var(--muted-2);
+  font-size: 12px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav a:hover,
+.footer a:hover {
+  color: #ffffff;
+}
+
+.ghostButton,
+.secondaryButton,
+.secondaryLight,
+.primaryButton,
+.cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 650;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.ghostButton {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.ghostButton:hover,
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.section {
+  padding: 86px 0;
+}
+
+.section.tight {
+  padding-top: 20px;
+  padding-bottom: 32px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: center;
+  gap: 58px;
+  padding-top: 86px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 16px;
+  color: #c7cce0;
+  font-size: 14px;
+}
+
+.pill span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #35e99b;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 26px;
+  max-width: 760px;
+  font-size: clamp(46px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.heroText p,
+.largeText,
+.marketPanel p,
+.developerMain p,
+.securityCard p,
+.cta p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.heroText p {
+  margin-top: 26px;
+  max-width: 690px;
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.primaryButton {
+  background: #ffffff;
+  color: #080b1f;
+  padding: 16px 26px;
+  box-shadow: 0 24px 50px rgba(255, 255, 255, 0.1);
+}
+
+.primaryButton:hover,
+.cta a:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px 26px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.marketCard {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.065);
+  padding: 20px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.marketCard::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  z-index: -1;
+  border-radius: 44px;
+  background: rgba(38, 40, 180, 0.2);
+  filter: blur(28px);
+}
+
+.tickerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px 26px 0 0;
+  background: rgba(7, 10, 31, 0.82);
+  padding: 22px;
+}
+
+.tickerTop span,
+.orderGrid span {
+  display: block;
+  color: var(--muted-2);
+  font-size: 14px;
+}
+
+.tickerTop strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 32px;
+}
+
+.tickerTop em {
+  border-radius: 999px;
+  background: rgba(45, 230, 150, 0.1);
+  color: #69f2af;
+  padding: 7px 12px;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.chart {
+  display: grid;
+  height: 230px;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  gap: 8px;
+  background: rgba(7, 10, 31, 0.82);
+  padding: 20px 22px;
+}
+
+.chart i {
+  display: block;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(to top, var(--blue), var(--cyan));
+}
+
+.orderGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 0;
+  border-radius: 0 0 26px 26px;
+  background: rgba(7, 10, 31, 0.82);
+  padding: 0 22px 22px;
+}
+
+.orderGrid div {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+}
+
+.orderGrid strong {
+  display: block;
+  margin-top: 8px;
+}
+
+.green {
+  color: #69f2af;
+}
+
+.red {
+  color: #ff8ca4;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.statCard,
+.productCard,
+.flowCard,
+.marketPanel,
+.developerMain,
+.securityCard {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.statCard {
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.statCard strong {
+  display: block;
+  font-size: 26px;
+}
+
+.statCard span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted-2);
+  font-size: 14px;
+}
+
+.sectionTitle {
+  max-width: 700px;
+  margin-bottom: 42px;
+}
+
+.sectionTitle.compact {
+  margin-bottom: 22px;
+}
+
+.sectionTitle span {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.sectionTitle h2,
+.marketPanel h2,
+.developerMain h2,
+.cta h2 {
+  margin-top: 16px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.productCard {
+  border-radius: 28px;
+  padding: 26px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  background: var(--panel-strong);
+}
+
+.iconBox {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: rgba(38, 40, 180, 0.32);
+  color: var(--cyan);
+}
+
+.productCard h3,
+.flowItem h3,
+.securityCard h3 {
+  margin-top: 24px;
+  font-size: 21px;
+}
+
+.productCard p,
+.flowItem p {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.architecture,
+.developer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.largeText {
+  max-width: 660px;
+  font-size: 18px;
+}
+
+.flowCard {
+  border-radius: 34px;
+  padding: 24px;
+}
+
+.flowItem {
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 26px;
+}
+
+.flowItem.blue {
+  background: rgba(38, 40, 180, 0.24);
+}
+
+.flowLine {
+  width: 1px;
+  height: 38px;
+  margin: 0 auto;
+  background: var(--line);
+}
+
+.marketPanel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: center;
+  border-radius: 34px;
+  padding: 42px;
+}
+
+.marketPanel p {
+  margin-top: 20px;
+}
+
+.regionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.regionGrid div {
+  display: flex;
+  min-height: 170px;
+  align-items: flex-end;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(7, 10, 31, 0.78);
+  padding: 24px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.developerMain,
+.securityCard {
+  border-radius: 34px;
+  padding: 42px;
+}
+
+.developerMain {
+  grid-column: span 2;
+}
+
+.developerMain p,
+.securityCard p {
+  margin-top: 20px;
+}
+
+.secondaryLight {
+  margin-top: 30px;
+  background: #ffffff;
+  color: #080b1f;
+  padding: 15px 24px;
+}
+
+.securityCard {
+  background: rgba(38, 40, 180, 0.22);
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 28px;
+  align-items: center;
+  border-radius: 40px;
+  background: #ffffff;
+  color: #070a1f;
+  padding: 52px;
+}
+
+.cta p {
+  max-width: 680px;
+  margin-top: 18px;
+  color: #667085;
+  font-size: 18px;
+}
+
+.cta a {
+  justify-self: end;
+  background: var(--blue);
+  color: white;
+  padding: 16px 28px;
+  box-shadow: 0 22px 40px rgba(38, 40, 180, 0.22);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid var(--line);
+  padding: 34px 0;
+  color: var(--muted-2);
+  font-size: 14px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+  }
+
+  .hero,
+  .architecture,
+  .marketPanel,
+  .developer,
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 56px;
+  }
+
+  .productGrid,
+  .stats,
+  .regionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .developerMain {
+    grid-column: auto;
+  }
+
+  .cta a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .header,
+  .section,
+  .footer {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .ghostButton {
+    display: none;
+  }
+
+  .section {
+    padding: 62px 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .marketCard {
+    padding: 14px;
+  }
+
+  .tickerTop strong {
+    font-size: 24px;
+  }
+
+  .chart {
+    height: 190px;
+    gap: 5px;
+  }
+
+  .orderGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productGrid,
+  .stats,
+  .regionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .marketPanel,
+  .developerMain,
+  .securityCard,
+  .cta {
+    padding: 28px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
 }

@@ -1,14 +1,12 @@
-# VAXS Vercel Site
+# VAXS Exchange Homepage
 
-## Local preview
+A Vercel-ready Next.js homepage for VAX Solutions Limited.
 
-```bash
-npm install
-npm run dev
-```
+## Deploy on Vercel
 
-Open http://localhost:3000
-
-## Vercel deployment
-
-Import this repository in Vercel and keep the default settings.
+1. Upload this folder to a GitHub repository.
+2. Import the repository in Vercel.
+3. Framework Preset: Next.js.
+4. Build Command: npm run build.
+5. Output Directory: leave empty.
+6. Deploy.
