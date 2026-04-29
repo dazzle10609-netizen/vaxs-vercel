@@ -1,6 +1,4 @@
-# VAXS Exchange Homepage
-
-A Next.js homepage for VAX Solutions Limited, ready for Vercel deployment.
+# VAXS Vercel Site
 
 ## Local preview
 
@@ -13,9 +11,4 @@ Open http://localhost:3000
 
 ## Vercel deployment
 
-Import this repository into Vercel and keep the default Next.js settings:
-
-- Framework Preset: Next.js
-- Build Command: next build
-- Output Directory: leave empty
-- Install Command: npm install
+Import this repository in Vercel and keep the default settings.

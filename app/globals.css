@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: dark;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -11,9 +7,4 @@ html {
 body {
   margin: 0;
   background: #050716;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
 }

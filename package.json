@@ -1,5 +1,5 @@
 {
-  "name": "vaxs-exchange-homepage",
+  "name": "vaxs-vercel-fixed",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,8 +16,5 @@
     "react-dom": "latest",
     "tailwindcss": "latest"
   },
-  "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-next": "latest"
-  }
+  "devDependencies": {}
 }
